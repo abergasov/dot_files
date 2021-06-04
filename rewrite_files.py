@@ -16,8 +16,7 @@ for i in target_dirs:
     src_path = home + i
     target_path = git_dir + i
     Path(target_path).mkdir(parents=True, exist_ok=True)
-    files = [f for f in os.listdir(src_path) if isfile(join(src_path, f))]
-    for f in files:
+    for f in [f for f in os.listdir(src_path) if isfile(join(src_path, f))]:
         src_file = '{0}/{1}'.format(src_path, f)
         if os.access(src_file, os.X_OK):
             executable_files.append("{0}/{1}".format(i, f))
@@ -25,4 +24,4 @@ for i in target_dirs:
         status = os.stat(src_file)
 
 with open("executable_list.json", "w") as outfile:
-    outfile.write( json.dumps(executable_files, indent=4))
+    outfile.write(json.dumps(executable_files, indent=4))
