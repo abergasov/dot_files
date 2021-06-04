@@ -128,7 +128,6 @@ alias tnt_res='docker stop tarantool_ccp.ddk && docker start tarantool_ccp.ddk'
 alias ssh_tunnel='ssh -N -D 5005 personal_jesus'
 alias virtual='sudo modprobe vboxdrv && sudo /sbin/virtualbox'
 alias trio='datagrip & phpstorm & goland'
-alias city='stop_d || ./projects/taxiserv-docker/run.sh'
 
 function stop_d {
 	docker container ls -q | awk '{print $1}' | xargs -o docker container stop
