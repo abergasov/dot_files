@@ -1,0 +1,42 @@
+[headphones-bluetooth]
+command=echo -n ' ';bluetoothctl devices | cut -f2 -d' ' | while read uuid; do bluetoothctl info $uuid; done | grep -o "Connected: yes"
+interval=10
+
+[btc]
+label=USD 
+command=curl -s http://api.coindesk.com/v1/bpi/currentprice/USD.json | jq -r '.bpi["USD"]["rate_float"]'
+interval=385
+color=#A4C2F4
+
+[btc]
+label=RUB 
+command=a=$(curl -s http://api.coindesk.com/v1/bpi/currentprice/RUB.json | jq -r '.bpi["RUB"]["rate_float"]') && echo "scale=1; $a*0.02594128" | bc
+interval=385
+color=#A4C2F4
+
+[calc-button]
+full_text=calc
+command=gnome-calculator >/dev/null
+
+[weather]
+command=echo $(curl -sS 'http://wttr.in/Podolsk?format=%l:+%c+%t+%C+%o')
+interval=120
+color=#A4C2F4
+
+[vpn]
+command=nmcli con show --active | grep vpn | awk -v d=" | " '{s=(NR==1?s:s d)$1}END{print s}'
+interval=5
+color=#91E78B
+
+[city]
+command=curl -s https://fin.belformag.ru/api/me | jq -r '.city, .country' | awk -v d=", " '{s=(NR==1?s:s d)$1}END{print s}'
+interval=5
+
+[calendar]
+command=~/.config/i3/calendar
+interval=1
+LABEL= 
+DATEFMT=+%H:%M:%S
+# SHORTFMT=+%H:%M:%S
+HEIGHT=280
+WIDTH=320
