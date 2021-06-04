@@ -5,7 +5,7 @@ from os.path import isfile, join
 import shutil
 import json
 
-home = str(Path.home()) + "/config_tmp/"
+home = str(Path.home()) + "/.config/"
 git_dir = str(Path().absolute()) + "/config/"
 
 executable_file_list = json.load(open('executable_list.json',))
