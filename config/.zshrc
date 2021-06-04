@@ -112,7 +112,6 @@ alias dphp='docker exec -it shopify_app_php php'
 
 #/usr/bin/bash ~/.config/i3/keepassxc.sh
 
-
 #--------
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
   eval `ssh-agent`
@@ -134,8 +133,6 @@ function stop_d {
 }
 
 alias docker_stop="stop_d"
-
-#eval $(thefuck --alias)
 
 export GO_PATH=~/go
 export PATH=$PATH:/$GO_PATH/bin
