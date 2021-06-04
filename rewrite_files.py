@@ -1,6 +1,7 @@
 import os
 from os.path import isfile, join
 from pathlib import Path
+import subprocess as cmd
 import shutil
 import json
 
@@ -35,3 +36,7 @@ for i in target_data:
 
 with open("executable_list.json", "w") as outfile:
     outfile.write(json.dumps(executable_files, indent=4))
+
+cmd.run("git add .", check=True, shell=True)
+cmd.run(f"git commit -m '1'", check=True, shell=True)
+cmd.run("git push -u origin master -f", check=True, shell=True)
