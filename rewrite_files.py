@@ -39,4 +39,4 @@ with open("executable_list.json", "w") as outfile:
 
 cmd.run("git add .", check=True, shell=True)
 cmd.run("git commit -m 'config update'", check=True, shell=True)
-cmd.run("git push origin master", check=True, shell=True)
+cmd.run("git push origin main", check=True, shell=True)
