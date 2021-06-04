@@ -11,7 +11,7 @@ if os.path.exists(git_dir):
     shutil.rmtree(git_dir)
 executable_files = []
 
-target_dirs = ["i3", "i3blocks", "i3status"]
+target_dirs = ["i3", "i3blocks", "i3status", "dunst"]
 for i in target_dirs:
     src_path = home + i
     target_path = git_dir + i
